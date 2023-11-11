@@ -98,6 +98,5 @@ payment_signing_key = PaymentSigningKey.load(sk_path)
 # It is required that the entire balance of the address is placed in all_amount 
 tx_body = create_tx_body(addr_to=address_to , all_amount=1000000 , fee=170000)
 
-# Changes were made in (tx_builder.build_and_sign  line -> 1263 ...  1273)
 signed_tx = tx_builder.build_and_sign([payment_signing_key], change_address=Address.from_primitive(address_from))
 context.submit_tx(signed_tx.to_cbor())
